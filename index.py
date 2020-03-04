@@ -1,5 +1,5 @@
 import tweepy, time, sys, codecs
-from statics import INTERVAL
+from statics import INTERVAL_TEST
 from os import environ
 
 
@@ -21,8 +21,13 @@ filename = codecs.open('test', 'r', 'utf-8')
 f = filename.readlines()
 filename.close()
 
-
+string = ''
 for line in f:
-    api.update_status(line)
-    time.sleep(INTERVAL)
+    if string == '':
+        string = line
+    else:
+        string = string + '\n' + line
+    if line == '':
+        api.update_status(line)
+        time.sleep(INTERVAL_TEST)
 
