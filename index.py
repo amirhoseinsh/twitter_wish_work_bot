@@ -1,4 +1,4 @@
-import tweepy, time, sys
+import tweepy, time, sys, codecs
 from credentials import *
 from statics import INTERVAL
 argfile = str(sys.argv[1])
@@ -17,8 +17,8 @@ ACCESS_SECRET = ACCESS_SECRET_T
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
+filename = codecs.open('test', 'r', 'utf-8')
 
-filename = open(argfile, 'r')
 f = filename.readlines()
 filename.close()
 
