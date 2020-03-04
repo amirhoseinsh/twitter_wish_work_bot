@@ -28,6 +28,6 @@ for line in f:
     else:
         string = string + '\n' + line
     if line == '':
-        api.update_status(line)
+        api.update_status(string)
         time.sleep(INTERVAL_TEST)
 
