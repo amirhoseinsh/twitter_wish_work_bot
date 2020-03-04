@@ -1,5 +1,5 @@
 import tweepy, time, sys, codecs
-from statics import INTERVAL_TEST
+from statics import INTERVAL
 from os import environ
 
 
@@ -16,18 +16,31 @@ ACCESS_SECRET = environ['ACCESS_SECRET']
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
+
 filename = codecs.open('test', 'r', 'utf-8')
 
 f = filename.readlines()
 filename.close()
 
 string = ''
+
+# for line in f:
+#     if string == '':
+#         string = line
+#     if line != 'end' and string != '':
+#         string = string + '\n' + line
+#     if line == '\n' or line == 'end':
+#         print('gayidi', string)
+#         string = ''
+#         time.sleep(10)
+
 for line in f:
     if string == '':
         string = line
-    else:
+    if line != 'end' and string != '':
         string = string + '\n' + line
-    if line == '':
+    if line == '\n' or line == 'end':
         api.update_status(string)
-        time.sleep(INTERVAL_TEST)
+        string = ''
+        time.sleep(INTERVAL)
 
