@@ -1,6 +1,5 @@
 import tweepy, time, sys, codecs
 from statics import INTERVAL
-argfile = str(sys.argv[1])
 from os import environ
 
 
