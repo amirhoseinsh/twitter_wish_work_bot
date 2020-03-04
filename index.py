@@ -1,5 +1,5 @@
 import tweepy, time, sys, codecs
-from statics import INTERVAL
+from statics import INTERVAL, INTERVAL_TEST
 from os import environ
 
 
@@ -27,19 +27,24 @@ string = ''
 # for line in f:
 #     if string == '':
 #         string = line
-#     if line != 'end' and string != '':
-#         string = string + '\n' + line
-#     if line == '\n' or line == 'end':
-#         print('gayidi', string)
+#         continue
+#     if line != 'end' and string != '' and line != 'next\n':
+#         string += '\n' + line
+#         continue
+#     if line == 'next\n' or line == 'end':
+#         print(string)
 #         string = ''
-#         time.sleep(10)
+#         time.sleep(INTERVAL_TEST)
+
 
 for line in f:
     if string == '':
         string = line
-    if line != 'end' and string != '':
-        string = string + '\n' + line
-    if line == '\n' or line == 'end':
+        continue
+    if line != 'end' and string != '' and line != 'next\n':
+        string += '\n' + line
+        continue
+    if line == 'next\n' or line == 'end':
         api.update_status(string)
         string = ''
         time.sleep(INTERVAL)
