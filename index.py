@@ -24,19 +24,6 @@ filename.close()
 
 string = ''
 
-# for line in f:
-#     if string == '':
-#         string = line
-#         continue
-#     if line != 'end' and string != '' and line != 'next\n':
-#         string += '\n' + line
-#         continue
-#     if line == 'next\n' or line == 'end':
-#         print(string)
-#         string = ''
-#         time.sleep(INTERVAL_TEST)
-
-
 for line in f:
     if string == '':
         string = line
