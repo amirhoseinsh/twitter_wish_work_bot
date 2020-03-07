@@ -1,16 +1,16 @@
 import tweepy, time, sys, codecs
 from statics import INTERVAL, INTERVAL_TEST
-from os import environ
+from credentials import *
 
 
 # keep the quotes, replace this with your consumer key
-CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_KEY = CONSUMER_KEY
 # keep the quotes, replace this with your consumer secret key
-CONSUMER_SECRET = environ['CONSUMER_SECRET']
+CONSUMER_SECRET = CONSUMER_SECRET
 # keep the quotes, replace this with your access token
-ACCESS_KEY = environ['ACCESS_KEY']
+ACCESS_KEY = ACCESS_KEY
 # keep the quotes, replace this with your access token secret
-ACCESS_SECRET = environ['ACCESS_SECRET']
+ACCESS_SECRET = ACCESS_SECRET
 
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
